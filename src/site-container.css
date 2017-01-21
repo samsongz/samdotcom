@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Phosphate-Solid';
+  src: url('./fonts/Phosphate-Solid.eot');
+  src: url('./fonts/Phosphate-Solid.ttf') format('truetype'),
+       url('./fonts/Phosphate-Solid.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Phosphate-Inline';
+  src: url('./fonts/Phosphate-Inline.eot');
+  src: url('./fonts/Phosphate-Inline.ttf') format('truetype'),
+       url('./fonts/Phosphate-Inline.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'Droid Sans Mono';
+  font-size: 16;
+}
+
+
+
+.containerBorder {
+  border: solid 20px black;
+  margin: 30px;
+  min-height: 100vh;
+}
+
+.containerBody {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+

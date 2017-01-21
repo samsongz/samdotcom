@@ -1,33 +1,36 @@
 {
-  "name": "minimal-react-starter",
-  "version": "0.0.3",
-  "description": "Minimal react starter project",
+  "name": "SamDotCom",
+  "version": "0.0.1",
+  "description": "Sam's personal dot com world wide website",
   "main": "src/index.js",
   "scripts": {
     "compile": "webpack",
     "start": "node server.js"
   },
   "keywords": [
-    "react",
-    "webpack",
-    "babel",
-    "minimal",
-    "starter"
+    "sam",
+    "dot",
+    "com",
+    "dotcom"
   ],
-  "author": "Andrew H Farmer",
+  "author": "Sam Meyer",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ahfarmer/minimal-react-starter.git"
+    "url": "git://github.com/samsongz/samdotcom.git"
   },
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.26.1",
     "express": "^4.14.0",
+    "file-loader": "^0.9.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.6.1"
   }
