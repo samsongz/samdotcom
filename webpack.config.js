@@ -2,7 +2,7 @@ var path = require('path');
 
 const fontPath = path.join(__dirname, 'src/fonts')
 const srcPath = path.join(__dirname, 'src')
-const appPath = path.join(__dirname, 'app')
+const appPath = path.join(__dirname, 'dist')
 const stylesPath = path.join(__dirname, 'src/styles')
 const imgPath = path.join(__dirname, 'src/img')
 

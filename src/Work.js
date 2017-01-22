@@ -25,14 +25,14 @@ export default class Work extends Component {
   }
 }
 
-               // <table>
-               //  <tr>
-               //    <td><time>{obj.to}</time></td>
-               //    <td>{obj.title} <br />
-               //      <a href={obj.companyWebsite}>{obj.company}</a>
-               //    </td>
-               //  </tr>
-               //  <tr>
-               //    <td colSpan="2">{obj.description}</td>
-               //  </tr>
-               // </table>
+// <table>
+//  <tr>
+//    <td><time>{obj.to}</time></td>
+//    <td>{obj.title} <br />
+//      <a href={obj.companyWebsite}>{obj.company}</a>
+//    </td>
+//  </tr>
+//  <tr>
+//    <td colSpan="2">{obj.description}</td>
+//  </tr>
+// </table>
