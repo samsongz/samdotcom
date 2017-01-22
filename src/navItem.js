@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import styles from './nav.css'
 /**
  * A nav item
  */
@@ -11,8 +9,8 @@ export default class NavItem extends Component {
   }
   render() {
     const className = [
-      styles.navItem,
-      this.props.selected === this.props.text ? styles.active : ""
+      'navItem',
+      this.props.selected === this.props.text ? 'active' : ""
     ].join(' ')
     return (
       <div onClick={this.setSelected.bind(this)} className={className}>

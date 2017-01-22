@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { data } from './data'
-import styles from './nav.css'
 /**
  * A title section w/ ma name
  */
@@ -15,8 +14,8 @@ export default class Work extends Component {
             </li>
     })
     return (
-      <div id="work" className={styles.pageSlide}>
-        <section className={styles.timeline}>
+      <div id="work" className='pageSlide'>
+        <section className='timeline'>
           <ul>
             {historyItems}
           </ul>

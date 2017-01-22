@@ -1,12 +1,18 @@
 var path = require('path');
 
+const fontPath = path.join(__dirname, 'src/fonts')
+const srcPath = path.join(__dirname, 'src')
+const appPath = path.join(__dirname, 'app')
+const stylesPath = path.join(__dirname, 'src/styles')
+const imgPath = path.join(__dirname, 'src/img')
+
 var config = {
-  context: path.join(__dirname, 'src'),
+  context: srcPath,
   entry: [
     './main.js',
   ],
   output: {
-    path: path.join(__dirname, 'app'),
+    path: appPath,
     filename: 'bundle.js',
   },
   module: {
@@ -16,23 +22,22 @@ var config = {
         exclude: /node_modules/,
         loaders: ['babel-loader'],
       },
-      {
+      { include: stylesPath,
         test: /\.css$/,
         loader: 'style-loader'
       },
       {
+        include: stylesPath,
         test: /\.css$/,
         loader: 'css-loader',
-        query: {
-          modules: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]'
-        }
       },
-      { include: path.join(__dirname, 'src/fonts'), test: /\.woff$/, loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },
-      { include: path.join(__dirname, 'src/fonts'), test: /\.woff2$/, loader: 'url?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]' },
-      { include: path.join(__dirname, 'src/fonts'), test: /\.ttf$/, loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },
-      { include: path.join(__dirname, 'src/fonts'), test: /\.[ot]tf$/, loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]' },
-      { include: path.join(__dirname, 'src/fonts'), test: /\.eot$/, loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]' }
+      { include: fontPath, test: /\.svg$/, loader: 'url?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]' },
+      { include: fontPath, test: /\.woff$/, loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },
+      { include: fontPath, test: /\.woff2$/, loader: 'url?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]' },
+      { include: fontPath, test: /\.ttf$/, loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },
+      { include: fontPath, test: /\.[ot]tf$/, loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]' },
+      { include: fontPath, test: /\.eot$/, loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]' },
+      { include: imgPath, test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192', }
     ],
   },
   resolveLoader: {

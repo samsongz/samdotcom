@@ -1,6 +1,7 @@
 export const data = {
   profile: "I'm an entrepreneur and developer based in Brooklyn.\n\n" +
-  "I'm passionate about\n\n" +
+  "I'm passionate about finding opportunities in unlikely places. \n\n" +
+
   "nitaris mundana eximia.",
   workHistory: [
     {
