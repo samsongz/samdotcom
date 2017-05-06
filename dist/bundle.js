@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/Users/sam1/code/samdotcom/dist/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -21624,6 +21624,13 @@
 	          { className: 'title-page' },
 	          _react2.default.createElement(_Title2.default, null),
 	          _react2.default.createElement(_Nav2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'containerBody' },
+	          _react2.default.createElement(_About2.default, null),
+	          _react2.default.createElement(_Work2.default, null),
+	          _react2.default.createElement(_Contact2.default, null)
 	        )
 	      );
 	    }
@@ -21631,14 +21638,6 @@
 
 	  return SiteContainer;
 	}(_react.Component);
-
-	// <div className='containerBody'>
-
-	//     <About />
-	//     <Work />
-	//     <Contact />
-	// </div>
-
 
 	exports.default = SiteContainer;
 
@@ -21753,9 +21752,9 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'nav' },
-	        _react2.default.createElement(_navItem2.default, { setSelected: this.setSelectedSection.bind(this), selected: selected, link: '#about', text: '' }),
-	        _react2.default.createElement(_navItem2.default, { setSelected: this.setSelectedSection.bind(this), selected: selected, link: '#work', text: '' }),
-	        _react2.default.createElement(_navItem2.default, { setSelected: this.setSelectedSection.bind(this), selected: selected, link: '#contact', text: '' })
+	        _react2.default.createElement(_navItem2.default, { setSelected: this.setSelectedSection.bind(this), selected: selected, link: '#about', text: 'ABOUT' }),
+	        _react2.default.createElement(_navItem2.default, { setSelected: this.setSelectedSection.bind(this), selected: selected, link: '#work', text: 'WORK' }),
+	        _react2.default.createElement(_navItem2.default, { setSelected: this.setSelectedSection.bind(this), selected: selected, link: '#contact', text: 'CONTACT' })
 	      );
 	    }
 	  }]);
@@ -21769,7 +21768,7 @@
 /* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -21802,20 +21801,21 @@
 	  }
 
 	  _createClass(NavItem, [{
-	    key: "setSelected",
+	    key: 'setSelected',
 	    value: function setSelected() {
-	      document.querySelector(this.props.link).scrollIntoView({ block: "end", behavior: "smooth" });
+	      var link = document.querySelector(this.props.link);
+	      window.scroll(0, link.offsetTop - 100);
 	      this.props.setSelected(this.props.text);
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      var className = ['navItem', this.props.selected === this.props.text ? 'active' : ""].join(' ');
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        { onClick: this.setSelected.bind(this), className: className },
 	        _react2.default.createElement(
-	          "p",
+	          'p',
 	          { href: this.props.link },
 	          this.props.text
 	        )
@@ -21919,17 +21919,19 @@
 	  }
 
 	  _createClass(About, [{
+	    key: 'htmlProfile',
+	    value: function htmlProfile(prof) {
+	      return { __html: prof };
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var text = this.htmlProfile(_data.data.profile);
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'about', className: 'pageSlide' },
 	        _react2.default.createElement('div', { className: 'profileImage' }),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          _data.data.profile
-	        )
+	        _react2.default.createElement('p', { dangerouslySetInnerHTML: text })
 	      );
 	    }
 	  }]);
@@ -21949,23 +21951,111 @@
 	  value: true
 	});
 	var data = exports.data = {
-	  profile: "I'm an entrepreneur and developer based in Brooklyn.\n\n" + "I'm passionate about finding opportunities in unlikely places. \n\n" + "nitaris mundana eximia.",
+	  profile: "I am an entrepreneur and technologist currently based in Brooklyn, NY.\
+	  I've started several health tech startups with varying levels of success. i.e. I've learned a tremendous amount about what makes a mediocre product\
+	  vs. a great product and what makes a mediocre company vs. a great one.\
+	  <br />\
+	  <br />\
+	  I am currently open to new opportunities in many different shapes and sizes.\
+	  I'm especially interested in the process and signals of early product validation. How to minimize startup product risk by \
+	  detecting, testing for and uncovering a product that has a high likelihood of success in a given market.\
+	  <br />\
+	  <br />\
+	  Some topics that interest me are: our agricultural future, waste processing, artificial intelligence and the \
+	  benefits and risks thereof, almost anything DIY, the future of web technology, technological interfaces that don't require us to stare down \
+	  into our upturned palms, software driven innovation in niche industries.",
 	  workHistory: [{
 	    id: 1,
-	    from: 2013,
-	    to: 2016,
+	    from: "August 2013",
+	    to: "December 2016",
 	    title: "Founder & CTO",
 	    company: "CredSimple",
 	    companyWebsite: "https://www.credsimple.com",
-	    description: "Some explanation of what i did"
+	    description: "<em>Founder</em>\
+	      <ul>\
+	        <li>Grew company from 0 to 15+ employees and $1m in annual revenue</li>\
+	        <li>Developed innovative business model using modern technology, creating efficiency and opportunity in wasteful legacy business process in enterprise healthcare; i.e. managing practitioner data</li>\
+	        <li>Successfully pitched VC investors with compelling thesis on market trends, size and competition</li>\
+	      </ul>\
+	      <em>CTO</em>\
+	      <ul>\
+	        <li>Architected and built 10 Ruby apps in microservice architecture, solving industry-wide data problem\
+	          <ul>\
+	            <li>85% reduction in credentialing turnaround time via process automation and efficient workflows</li>\
+	            <li>10x increase in credentialing throughput capacity from better data management and architecture</li>\
+	            <li>Used Ruby on Rails, Rspec, React/Redux, PostgreSQL, MongoDB, RabbitMQ, AWS suite</li>\
+	            <li>Wrote core code for credentialing automation workflow, data ingestion, matching algorithms and\
+	third party integrations (SOAP, DBF files, REST APIs)</li>\
+	          </ul>\
+	        </li>\
+	        <li>Built and managed team of 5 software and data engineers, established hiring process best practices</li>\
+	        <li>Established and optimized agile product & engineering processes and best practices</li>\
+	        <li>Served as head of product; managed roadmap, sprints, story creation & backlog, bug reporting,\
+	release process & product marketing</li>\
+	        <li>Collaborated with clients and internal stakeholders, incorporating feedback and key accounts into\
+	product roadmap planning and maintenance</li>\
+	        <li>Supported sales and marketing by meeting prospective & current clients, completing technical RFPs,\
+	ensuring technical stakeholder buy-in, managing client security evaluations, audits and integrations</li>\
+	      </ul>"
 	  }, {
 	    id: 2,
-	    from: 2013,
-	    to: 2013,
+	    from: "July 2013",
+	    to: "September 2013",
 	    title: "Floating Founder",
 	    company: "Blueprint Health",
 	    companyWebsite: "https://www.blueprinthealth.org/",
-	    description: "Some explanation of what i did"
+	    description: "<ul>\
+	      <li>Consulted/advised seed stage health tech companies on technology decisions, initial customer\
+	development, business model generation, built MVP/demo products for two accelerator companies</li>\
+	      <li>Re-built and migrated medical education platform from PHP to Ruby on Rails to accelerate user\
+	growth. The company was acquired in 2016</li>\
+	      </ul>"
+	  }, {
+	    id: 3,
+	    from: "July 2012",
+	    to: "August 2013",
+	    title: "Founder & CEO",
+	    company: "Medango",
+	    description: "<ul>\
+	      <li>First attempt at starting a company. Built Ruby on Rails web app enabling pharmacies to improve\
+	medication adherence and manage patient relationships using adaptive text messaging (via Twilio)</li>\
+	      <li>Applied for NIH SBIR funding, did not get it</li>\
+	      <li>Recognized by CGI University division of Clinton Foundation for increasing patient access and\
+	medication safety through innovative technology. Presented with award at annual conference</li>\
+	      </ul>"
+	  }, {
+	    id: 4,
+	    from: "June 2011",
+	    to: "July 2012",
+	    title: "Emerging Markets Commodities Analyst",
+	    company: "Business Monitor International",
+	    companyWebsite: "http://www.bmiresearch.com/",
+	    description: "<ul>\
+	      <li>Researched and wrote daily, weekly, quarterly reports on the macroeconomic trends impacting global metals and mining markets</li>\
+	      <li>Developed forecasts and forward looking analysis based on commodity price trends, raw/processed material trade patterns, geopolitical and macroeconomic factors and foreign exchange.</li>\
+	      </ul>"
+	  }, {
+	    id: 5,
+	    from: "March 2010",
+	    to: "October 2010",
+	    title: "Apprentice",
+	    company: "Common Thread Community Farm",
+	    companyWebsite: "http://www.commonthreadcsa.com/",
+	    description: "<ul>\
+	      <li>Grew seasonal vegetables for over 400 families</li>\
+	      </ul>"
+	  }, {
+	    id: 6,
+	    from: "August 2006",
+	    to: "May 2010",
+	    title: "Undergraduate Student",
+	    company: "Colgate University",
+	    companyWebsite: "https://www.colgate.edu",
+	    description: "<ul>\
+	      <li>3.5 GPA, <em>Cum Laude</em></li>\
+	      <li>International experience: Uganda, Rwanda, India, Mexico, Germany</li>\
+	      <li><a href=http://www.colgate13.org/>Colgate 13</a> men's a capella group</li>\
+	      </ul>"
 	  }]
 	};
 
@@ -22008,27 +22098,48 @@
 	  }
 
 	  _createClass(Work, [{
+	    key: 'htmlDescription',
+	    value: function htmlDescription(desc) {
+	      return { __html: desc };
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var historyItems = _data.data.workHistory.map(function (obj) {
 	        return _react2.default.createElement(
-	          'li',
-	          { key: obj.id },
+	          'tr',
+	          { key: obj.id, className: 'workRow' },
 	          _react2.default.createElement(
-	            'div',
-	            null,
+	            'td',
+	            { className: 'companyCol' },
 	            _react2.default.createElement(
-	              'time',
-	              null,
-	              obj.from
+	              'div',
+	              { className: 'company' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: obj.companyWebsite, target: '_blank' },
+	                obj.company
+	              )
 	            ),
 	            _react2.default.createElement(
 	              'p',
-	              null,
-	              obj.title,
+	              { className: 'workDates' },
+	              obj.from,
 	              ' - ',
-	              obj.description
+	              obj.to
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'td',
+	            { className: 'roleCol' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'jobTitle' },
+	              obj.title
+	            ),
+	            _react2.default.createElement('p', { className: 'jobDescription', dangerouslySetInnerHTML: _this2.htmlDescription(obj.description) })
 	          )
 	        );
 	      });
@@ -22036,10 +22147,10 @@
 	        'div',
 	        { id: 'work', className: 'pageSlide' },
 	        _react2.default.createElement(
-	          'section',
+	          'table',
 	          { className: 'timeline' },
 	          _react2.default.createElement(
-	            'ul',
+	            'tbody',
 	            null,
 	            historyItems
 	          )
@@ -22050,19 +22161,6 @@
 
 	  return Work;
 	}(_react.Component);
-
-	// <table>
-	//  <tr>
-	//    <td><time>{obj.to}</time></td>
-	//    <td>{obj.title} <br />
-	//      <a href={obj.companyWebsite}>{obj.company}</a>
-	//    </td>
-	//  </tr>
-	//  <tr>
-	//    <td colSpan="2">{obj.description}</td>
-	//  </tr>
-	// </table>
-
 
 	exports.default = Work;
 
@@ -22136,26 +22234,38 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'contact-item' },
-	          _react2.default.createElement('i', { className: 'icon ion-email' }),
-	          'Email'
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'mailto:samuelemeyer@gmail.com' },
+	            _react2.default.createElement('i', { className: 'icon ion-email' })
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'contact-item' },
-	          _react2.default.createElement('i', { className: 'icon ion-iphone' }),
-	          'Phone'
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'tel:646-854-9505' },
+	            _react2.default.createElement('i', { className: 'icon ion-iphone' })
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'contact-item' },
-	          _react2.default.createElement('i', { className: 'icon ion-social-linkedin' }),
-	          'LinkedIn'
+	          _react2.default.createElement(
+	            'a',
+	            { target: '_blank', href: 'https://www.linkedin.com/in/meyersam' },
+	            _react2.default.createElement('i', { className: 'icon ion-social-linkedin' })
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'contact-item' },
-	          _react2.default.createElement('i', { className: 'icon ion-social-github' }),
-	          'GitHub'
+	          _react2.default.createElement(
+	            'a',
+	            { target: '_blank', href: 'https://www.github.com/samsongz' },
+	            _react2.default.createElement('i', { className: 'icon ion-social-github' })
+	          )
 	        )
 	      );
 	    }
@@ -22201,7 +22311,7 @@
 
 
 	// module
-	exports.push([module.id, "@font-face {\n  font-family: 'Phosphate-Solid';\n  src: url(" + __webpack_require__(191) + ");\n  src: url(" + __webpack_require__(192) + ") format('woff'),\n       url(" + __webpack_require__(193) + ") format('truetype'),\n       url(" + __webpack_require__(191) + "?#iefix) format('embedded-opentype');\n  font-weight: normal;\n  font-style: normal;\n}\n\n@font-face {\n  font-family: 'Phosphate-Inline';\n  src: url(" + __webpack_require__(194) + ");\n  src: url(" + __webpack_require__(195) + ") format('woff'),\n       url(" + __webpack_require__(196) + ") format('truetype'),\n       url(" + __webpack_require__(194) + "?#iefix) format('embedded-opentype');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/* Main page */\nbody {\n  font-family: 'Droid Sans Mono';\n  font-size: 16;\n}\n\n.containerBody {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.title-page {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n  height: 100vh;\n}\n\n.title {\n  font-family: 'Phosphate-Inline';\n  font-size: 100;\n  color: #2196f3;\n  text-shadow: 2px 2px black;\n  text-align: center;\n  margin: auto auto 0 auto;\n  padding: 5px;\n  height: 20vh;\n  width: 40vw;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\n\n.title.fixed-title {\n  position: fixed;\n  top: 7;\n  width: 15vw;\n  height: 30px;\n  font-size: 25;\n  text-shadow: none;\n  padding: none;\n  background: white;\n  margin: 12;\n  padding: 0;\n  vertical-align: middle;\n  z-index: 1;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\n\n.pageSlide {\n  -webkit-box-ordinal-group: 2;\n      -ms-flex-order: 1;\n          order: 1;\n  border: solid 2px black;\n  width: 80vw;\n  height: 75vh;\n  margin-top: 10vh;\n  margin-bottom: 5vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n#top, #bottom, #left, #right {\n\tbackground: black;\n  margin: 25px;\n\tposition: fixed;\n\t}\n#left, #right {\n\ttop: 0; bottom: 0;\n\twidth: 20px;\n\t}\n\t#left { left: 0; }\n\t#right { right: 0; }\n\n#top, #bottom {\n\tleft: 0; right: 0;\n\theight: 20px;\n\t}\n\t#top { top: 0; }\n\t#bottom { bottom: 0; }\n\n\n/* Navigation section + links */\n.nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -ms-flex-flow: row nowrap;\n      flex-flow: row nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  justify-content: center;\n  width: 30vw;\n  height: 10vh;\n  margin: 0 auto auto auto;\n}\n\n.nav.fixed-nav {\n  position: fixed;\n  bottom: 13;\n  background: white;\n  width: 25vw;\n  height: 20px;\n  margin: 5;\n  padding: 7;\n  z-index: 1;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\n\n.fixed-nav > .navItem {\n  font-size: 20;\n}\n\n.navItem {\n  font-family: 'Phosphate-Solid';\n  font-size: 26;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  border: solid 7px transparent;\n  height: 35;\n}\n\n.fixed-nav > .navItem.active {\n  border: solid 7px black;\n}\n\n.navItem > p {\n  display: inline-block;\n  -webkit-margin-before: 0.3em;\n  -webkit-margin-after: 0.3em;\n}\n\n\n/* Work Timeline */\n\n.timeline ul li {\n  list-style-type: none;\n  position: relative;\n  width: 6px;\n  margin: 0 auto;\n  padding-top: 50px;\n  background: #fff;\n}\n\n.timeline ul li::after {\n  content: '';\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: inherit;\n}\n\n\n/* About Profile */\n\n.profileImage {\n  height: 100%;\n  width: 50%;\n  margin: 0 auto;\n  padding: 0;\n  background-image: url(" + __webpack_require__(197) + ");\n  background-position: top center;\n  background-repeat: no-repeat;\n  background-size: 75%;\n}\n\n/* Contact Icons/Links */\n.contact-item > i {\n  font-size: 56;\n}\n\n#contact {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: left;\n}\n\n.contact-item {\n  order: 1;\n}\n\n", ""]);
+	exports.push([module.id, "@font-face {\n  font-family: 'Phosphate-Solid';\n  src: url(" + __webpack_require__(191) + ");\n  src: url(" + __webpack_require__(192) + ") format('woff'),\n       url(" + __webpack_require__(193) + ") format('truetype'),\n       url(" + __webpack_require__(191) + "?#iefix) format('embedded-opentype');\n  font-weight: normal;\n  font-style: normal;\n}\n\n@font-face {\n  font-family: 'Phosphate-Inline';\n  src: url(" + __webpack_require__(194) + ");\n  src: url(" + __webpack_require__(195) + ") format('woff'),\n       url(" + __webpack_require__(196) + ") format('truetype'),\n       url(" + __webpack_require__(194) + "?#iefix) format('embedded-opentype');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/* Main page */\nbody {\n  font-family: 'Droid Sans Mono';\n  font-size: 16;\n}\n\n.containerBody {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n  flex-flow: column nowrap;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n}\n\n.title-page {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -ms-flex-flow: column nowrap;\n  flex-flow: column nowrap;\n  height: 100vh;\n}\n\n.title {\n  font-family: 'Phosphate-Inline';\n  font-size: 100;\n  color: #2196f3;\n  text-shadow: 2px 2px black;\n  text-align: center;\n  margin: auto auto 0 auto;\n  padding: 5px;\n  height: 20vh;\n  width: 40vw;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\n\n.pageBreak {\n  width: 90%;\n  height: 20px;\n  border-bottom: 10px solid black;\n  text-align: center;\n}\n\n.title.fixed-title {\n  position: fixed;\n  top: 7;\n  width: 15vw;\n  height: 30px;\n  font-size: 25;\n  text-shadow: none;\n  padding: none;\n  background: white;\n  margin: 12;\n  padding: 0;\n  vertical-align: middle;\n  z-index: 1;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\n\n.pageSlide {\n  -webkit-box-ordinal-group: 2;\n  -ms-flex-order: 1;\n  order: 1;\n/*  border: solid 2px black;*/\n  width: 80vw;\n  min-height: 80%;\n  margin-top: 10vh;\n  margin-bottom: 10vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n#top, #bottom, #left, #right {\n\tbackground: black;\n  margin: 25px;\n\tposition: fixed;\n\t}\n#left, #right {\n\ttop: 0; bottom: 0;\n\twidth: 20px;\n\t}\n\t#left { left: 0; }\n\t#right { right: 0; }\n\n#top, #bottom {\n\tleft: 0; right: 0;\n\theight: 20px;\n\t}\n\t#top { top: 0; }\n\t#bottom { bottom: 0; }\n\n\n/* Navigation section + links */\n.nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -ms-flex-flow: row nowrap;\n      flex-flow: row nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  justify-content: center;\n  width: 30vw;\n  height: 10vh;\n  margin: 0 auto auto auto;\n}\n\n.nav.fixed-nav {\n  position: fixed;\n  bottom: 13;\n  background: white;\n  width: 25vw;\n  height: 20px;\n  margin: 5;\n  padding: 7;\n  z-index: 1;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\n\n.fixed-nav > .navItem {\n  font-size: 20;\n}\n\n.navItem {\n  font-family: 'Phosphate-Solid';\n  font-size: 26;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  border: solid 7px transparent;\n  height: 35;\n}\n\n.fixed-nav > .navItem.active {\n  border: solid 7px black;\n}\n\n.navItem > p {\n  display: inline-block;\n  -webkit-margin-before: 0.3em;\n  -webkit-margin-after: 0.3em;\n}\n\n\n/* Work Timeline */\n.workRow > td {\n  padding-bottom: 2em;\n}\n.company {\n  font-weight: bold;\n  font-size: 21;\n}\n.jobTitle {\n  font-weight: bold;\n  font-size: 19;\n}\n.workDates {\n  font-style: italic;\n}\n.companyCol {\n  vertical-align: top;\n  width: 25%;\n}\n.roleCol {\n  vertical-align: top;\n  width: 75%;\n}\n\n/* About Profile */\n\n.profileImage {\n  height: 100%;\n  width: 100%;\n  margin: 0 auto;\n  margin-right: 2em;\n  background-image: url(" + __webpack_require__(197) + ");\n  background-position: top center;\n  background-repeat: no-repeat;\n  background-size: 100%;\n}\n\n/* Contact Icons/Links */\n.contact-item > a > .icon {\n  font-size: 72;\n  color: black;\n}\n\n#contact {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: row nowrap;\n      flex-flow: row nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.contact-item {\n  order: 1;\n  flex-basis: 10%;\n  text-align: center;\n  border: solid 7px transparent;\n}\n.contact-item:hover {\n  border: solid 7px black;\n}\n\n.contact-item > a {\n  text-decoration: none;\n}\n\n", ""]);
 
 	// exports
 

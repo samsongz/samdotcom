@@ -4,7 +4,8 @@ import React, { Component } from 'react';
  */
 export default class NavItem extends Component {
   setSelected() {
-    document.querySelector(this.props.link).scrollIntoView({block: "end", behavior: "smooth"});
+    var link = document.querySelector(this.props.link)
+    window.scroll(0, link.offsetTop - 100);
     this.props.setSelected(this.props.text)
   }
   render() {

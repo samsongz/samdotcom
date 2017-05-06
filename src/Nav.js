@@ -19,9 +19,9 @@ export default class Nav extends Component {
     // ABOUT WORK CONTACT
     return (
       <div className='nav'>
-        <NavItem setSelected={this.setSelectedSection.bind(this)} selected={selected} link="#about" text="" />
-        <NavItem setSelected={this.setSelectedSection.bind(this)} selected={selected} link="#work" text="" />
-        <NavItem setSelected={this.setSelectedSection.bind(this)} selected={selected} link="#contact" text="" />
+        <NavItem setSelected={this.setSelectedSection.bind(this)} selected={selected} link="#about" text="ABOUT" />
+        <NavItem setSelected={this.setSelectedSection.bind(this)} selected={selected} link="#work" text="WORK" />
+        <NavItem setSelected={this.setSelectedSection.bind(this)} selected={selected} link="#contact" text="CONTACT" />
       </div>
     );
   }

@@ -25,15 +25,13 @@ export default class SiteContainer extends Component {
           <Nav />
         </div>
 
+        <div className='containerBody'>
+            <About />
+            <Work />
+            <Contact />
+        </div>
 
       </div>
     );
   }
 }
-
-// <div className='containerBody'>
-
-//     <About />
-//     <Work />
-//     <Contact />
-// </div>

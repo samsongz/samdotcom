@@ -2,7 +2,7 @@ var path = require('path');
 
 const fontPath = path.join(__dirname, 'src/fonts')
 const srcPath = path.join(__dirname, 'src')
-const appPath = path.join(__dirname, 'dist')
+const appPath = path.join(__dirname, 'dist/')
 const stylesPath = path.join(__dirname, 'src/styles')
 const imgPath = path.join(__dirname, 'src/img')
 
@@ -14,6 +14,7 @@ var config = {
   output: {
     path: appPath,
     filename: 'bundle.js',
+    publicPath: appPath
   },
   module: {
     loaders: [

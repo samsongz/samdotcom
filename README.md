@@ -1,4 +1,4 @@
 samdotcom.com
 ---
 
-This app is made with React. Why, isn't that overkill? Yes, yes it is.
+This app is made with React. Isn't that overkill? Yes it is.
