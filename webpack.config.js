@@ -38,7 +38,7 @@ var config = {
       { include: fontPath, test: /\.ttf$/, loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },
       { include: fontPath, test: /\.[ot]tf$/, loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]' },
       { include: fontPath, test: /\.eot$/, loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]' },
-      { include: imgPath, test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192', }
+      { test: /\.(png|jpg)$/, loader: 'url-loader' }
     ],
   },
   resolveLoader: {
